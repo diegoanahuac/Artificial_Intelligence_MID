@@ -97,7 +97,7 @@ couple more customers wrong.
 L2 is like turning down the volume on every feature; L1 is like muting the ones it considers
 unimportant.
 
-*Screenshots: `screenshots/A14_02_l2_playground.png`, `screenshots/A14_03_l1_zeroed.png`, `screenshots/A14_06_l1_lambda_0.5_all_zeroed.png` (L1 at λ = 0.5: 8 / 8 features zeroed, train 70%, test 80%)*
+*Screenshots: `screenshots/A14_02_l2_large_lambda_0.5.png` (L2 at λ = 0.5: all 8 bars shrunk but nonzero, train 85%, test 80%), `screenshots/A14_03_l1_zeroed.png`, `screenshots/A14_06_l1_lambda_0.5_all_zeroed.png` (L1 at λ = 0.5: 8 / 8 features zeroed, train 70%, test 80%)*
 
 ## 7. True or False: "100% training accuracy means it's the best model to deploy"
 
