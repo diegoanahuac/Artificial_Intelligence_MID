@@ -1,85 +1,91 @@
-﻿# Activity 14 — Reflection Questions: ShopSmart Churn Prediction
+# Activity 14 — Reflection Questions: ShopSmart Churn Prediction
 
 **Student:** Diego Kamil Olea Ruiz
 **Course:** Introduction to Artificial Intelligence — Universidad Anáhuac Mayab
 **Session:** 24 · Regularized Logistic Regression (L1 & L2)
 
 All numbers come from the **Canonical Model** sections of the app unless a question asks about the
-playground. Screenshots are in [`screenshots/`](screenshots/).
+playground.
 
 ---
 
 ## 1. Plain (unregularized) model
 
-| Metric | Value |
-|---|---|
-| Train accuracy | **100%** (20 / 20) |
-| Test accuracy | **77%** (76.67% → 23 / 30) |
-| Train loss | **0.022** |
-| Test loss | **2.887** |
+- Train accuracy: **100%** (20 / 20)
+- Test accuracy: **77%** (76.67%, 23 / 30)
+- Train loss: **0.022**
+- Test loss: **2.887**
 
 The model is perfect on the training customers but misses about 1 in 4 new customers. Its test
 loss is roughly **130× its training loss**, which means it is very confident in many wrong
 predictions. That is a clear case of overfitting.
 
-*Screenshot: `screenshots/A14_01_overfitting_problem.png`*
+![Plain model](screenshots/A14_01_overfitting_problem.png)
+
+Without regularization the model hits 100% train accuracy but only 77% on test. Train loss is 0.022
+and test loss is 2.887, so it memorized the training customers instead of learning the real
+pattern.
 
 ## 2. Canonical L2 (Ridge) Model (λ = 0.05) — all 8 coefficients
 
-| Feature | Type | Coefficient |
-|---|---|---|
-| Tenure (months as a customer) | real | −1.33 |
-| Average monthly spend ($) | real | −0.15 |
-| Support tickets filed | real | 0.78 |
-| Days since last purchase | real | 0.48 |
-| Favorite color (code) | noise | −0.20 |
-| Customer's "lucky number" | noise | −0.62 |
-| Day of week they signed up | noise | −0.18 |
-| Length of their referral code | noise | −0.25 |
+Real features:
+- Tenure (months as a customer): −1.33
+- Average monthly spend ($): −0.15
+- Support tickets filed: 0.78
+- Days since last purchase: 0.48
 
-*Screenshot: `screenshots/A14_04_canonical_l2.png`*
+Noise features:
+- Favorite color (code): −0.20
+- Customer's "lucky number": −0.62
+- Day of week they signed up: −0.18
+- Length of their referral code: −0.25
+
+![Canonical L2 Model](screenshots/A14_04_canonical_l2.png)
+
+This is the graded L2 model at λ = 0.05. Every coefficient is much smaller than in the plain model,
+but all 8 are still there.
 
 ## 3. Canonical L2 Model — train and test accuracy
 
-| Metric | L2 (λ = 0.05) | Plain model | Difference |
-|---|---|---|---|
-| Train accuracy | **95%** | 100% | −5 pts |
-| Test accuracy | **83%** (83.33%) | 77% (76.67%) | **+7 pts** |
-| Test loss | 0.519 | 2.887 | much lower |
+- Train accuracy: **95%** (5 points lower than the plain model's 100%)
+- Test accuracy: **83%** (83.33%, 7 points higher than the plain model's 77%)
+- Test loss: 0.519 (vs. 2.887 for the plain model)
 
 L2 gives up a little training accuracy (it now misclassifies 1 of the 20 training customers) but
 **generalizes better**: test accuracy rises from 77% to 83%, and test loss drops from 2.887 to 0.519.
-The coefficients are much smaller overall (e.g., *Support tickets* 8.62 → 0.78), so the model is
+The coefficients are much smaller overall (e.g., Support tickets 8.62 → 0.78), so the model is
 far less overconfident.
 
 ## 4. Canonical L1 (Lasso) Model (λ = 0.05) — all 8 coefficients and zeroed features
 
-| Feature | Type | Coefficient |
-|---|---|---|
-| Tenure (months as a customer) | real | −2.11 |
-| Average monthly spend ($) | real | **0.00** |
-| Support tickets filed | real | 0.40 |
-| Days since last purchase | real | 0.28 |
-| Favorite color (code) | noise | **0.00** |
-| Customer's "lucky number" | noise | **0.00** |
-| Day of week they signed up | noise | **0.00** |
-| Length of their referral code | noise | **0.00** |
+Real features:
+- Tenure (months as a customer): −2.11
+- Average monthly spend ($): **0.00**
+- Support tickets filed: 0.40
+- Days since last purchase: 0.28
+
+Noise features:
+- Favorite color (code): **0.00**
+- Customer's "lucky number": **0.00**
+- Day of week they signed up: **0.00**
+- Length of their referral code: **0.00**
 
 **Features driven exactly to zero (5 / 8):** Average monthly spend, Favorite color, Customer's
 "lucky number", Day of week they signed up, and Length of their referral code.
 
-All 4 noise features were eliminated, but so was one real feature (*Average monthly spend*). Its
+All 4 noise features were eliminated, but so was one real feature (Average monthly spend). Its
 signal was already weak (−1.30 in the plain model, −0.15 under L2), so L1 judged it not worth
 keeping at this λ.
 
-*Screenshot: `screenshots/A14_05_canonical_l1.png`*
+![Canonical L1 Model](screenshots/A14_05_canonical_l1.png)
+
+This is the graded L1 model at λ = 0.05. It zeroed out 5 of the 8 features, and only tenure,
+support tickets and days since last purchase are left.
 
 ## 5. Canonical L1 Model — train and test accuracy
 
-| Metric | L1 (λ = 0.05) |
-|---|---|
-| Train accuracy | **95%** |
-| Test accuracy | **73%** (73.33%) |
+- Train accuracy: **95%**
+- Test accuracy: **73%** (73.33%)
 
 L1 produced the simplest model (only 3 active features), but at this λ its test accuracy is lower
 than both the plain model (77%) and L2 (83%). Its test loss (0.639) is still far better than the
@@ -97,7 +103,19 @@ couple more customers wrong.
 L2 is like turning down the volume on every feature; L1 is like muting the ones it considers
 unimportant.
 
-*Screenshots: `screenshots/A14_02_l2_large_lambda_0.5.png` (L2 at λ = 0.5: all 8 bars shrunk but nonzero, train 85%, test 80%), `screenshots/A14_03_l1_zeroed.png`, `screenshots/A14_06_l1_lambda_0.5_all_zeroed.png` (L1 at λ = 0.5: 8 / 8 features zeroed, train 70%, test 80%)*
+![L2 playground at λ = 0.5](screenshots/A14_02_l2_large_lambda_0.5.png)
+
+At λ = 0.5 all 8 bars shrank a lot but none of them reached zero. Train accuracy went down to 85%
+and test stayed at 80%.
+
+![L1 playground at λ = 0.05](screenshots/A14_03_l1_zeroed.png)
+
+At λ = 0.05, L1 already zeroed out 5 of 8 features, all 4 noise ones plus average monthly spend.
+
+![L1 playground at λ = 0.5](screenshots/A14_06_l1_lambda_0.5_all_zeroed.png)
+
+Pushing L1 to λ = 0.5 zeroes out all 8 features, so the model only predicts from the bias. That is
+where L1 goes too far.
 
 ## 7. True or False: "100% training accuracy means it's the best model to deploy"
 
