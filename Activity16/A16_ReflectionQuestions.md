@@ -95,8 +95,8 @@ Both methods agree with each other and with my guess of 4 groups in Question 1.
 
 ### 10. Where k-means fails
 
-- **Two moons**: k-means put **75%** of the points in their true group. WCSS of k-means' answer: **121.2**. WCSS of the true groups: **182.1**.
-- **One big group, two small ones**: **81%** of the points in their true group. WCSS of k-means' answer: **1051.8**. WCSS of the true groups: **1345.6**.
+- **Two moons**: k-means put **75.0%** of the points in their true group. WCSS of k-means' answer: **121.2**. WCSS of the true groups: **182.1**.
+- **One big group, two small ones**: **81.1%** of the points in their true group. WCSS of k-means' answer: **1051.8**. WCSS of the true groups: **1345.6**.
 
 In both datasets k-means' answer has a **lower WCSS than the true groups**. So k-means did not fail at its own job: it found a better answer to the question it is built to answer (make clusters as compact as possible). The problem is that the real groups are not round blobs of similar size (curved moons, or one big spread-out group next to two small dense ones), so the most compact split is not the real one. Minimizing WCSS and finding the true groups are not the same thing when the groups aren't round and equal.
 
