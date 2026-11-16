@@ -16,6 +16,8 @@ Each activity folder contains:
 | [Activity 13](Activity13/) | 23 | Mérida Homes: Regularized Linear Regression (Ridge / Lasso) | [A13_ReflectionQuestions.md](Activity13/A13_ReflectionQuestions.md) |
 | [Activity 14](Activity14/) | 24 | ShopSmart: Regularized Logistic Regression for churn (L2 / L1) | [A14_ReflectionQuestions.md](Activity14/A14_ReflectionQuestions.md) |
 | [Activity 15](Activity15/) | 25–27 | Digit Lab: neural networks, back-propagation and handwriting recognition | [A15_ReflectionQuestions.md](Activity15/A15_ReflectionQuestions.md) |
+| [Activity 18](Activity18/) | 34–36 | AI at Work: deep learning, generative AI and real tools | [A18_ToolReviews.md](Activity18/A18_ToolReviews.md) |
+| [Activity 19](Activity19/) | Extra | Grand Finale essay (optional, extra points) | [A19_Essay.md](Activity19/A19_Essay.md) |
 
 ## Running an activity locally
 
