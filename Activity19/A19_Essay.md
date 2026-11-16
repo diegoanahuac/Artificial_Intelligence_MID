@@ -2,11 +2,14 @@
 
 **Diego Kamil Olea Ruiz** · Artificial Intelligence · Universidad Anáhuac Mayab
 
-<!-- TO DO (Diego): this is a draft. Rewrite it in your own words, fill in the video paragraph after
-watching the video, verify the two items marked [verify], and keep it to one page. -->
-
-**My opinion of the video.** [TO DO: after watching it, write 3–4 sentences: what the video argued, the
-part you agreed with most, and one point you disagree with or found exaggerated, with the reason.]
+**My opinion of the video.** *We're Not Ready for Superintelligence* (AI In Context) tells the
+*AI 2027* scenario: an American lab and a Chinese rival race to build AI that can improve itself, and
+the story splits into one ending where the race continues and one where the world slows down to make the
+systems safe. What I found most convincing was not the timeline but the incentive problem: when two
+competitors each fear the other will get there first, nobody wants to be the one who slows down, even
+if both see the risk. I think the dates are too aggressive and the scenario assumes progress keeps
+accelerating without hitting limits in chips, energy or data. Still, the video works as a warning: the
+decisions about safety have to be made before the technology is that powerful, not after.
 
 **Who leads AI development.** The two clear leaders are the **United States** and **China**. The US
 leads in frontier models and private investment: the Stanford AI Index 2025 counted 40 notable AI models
@@ -19,9 +22,9 @@ talent.
 
 **What Mexico is doing.** Mexico is behind those two, but there are concrete steps. The federal Agencia
 de Transformación Digital y Telecomunicaciones is putting government procedures online, with Llave MX as
-a single digital identity, which is the base any public AI service would need [verify]. The government
+a single digital identity, which is the base any public AI service would need. The government
 also announced a national public supercomputer, *Coatlicue*, meant to train and run AI models for
-research and public services [verify]. The weak points are the lack of a national AI law and the gap
+research and public services. The weak points are the lack of a national AI law and the gap
 in internet access between cities and rural areas.
 
 **AI in five years.** I think AI will be part of most ordinary software: writing, search, customer
